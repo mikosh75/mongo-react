@@ -10,9 +10,10 @@ const expressValidator = require('express-validator');
 const mongoose = require('mongoose');
 const Signature = require('./models/signature.js')
 const app = express();
-const url = 'mongodb://localhost:27017/signatures';
-//=========================//
+//const url = 'mongodb://localhost:27017/signatures';
+const url = process.env.MONGOLAB_URI;
 
+//=========================//
 app.use(publicPath);
 app.use(bodyParser.json())
 
