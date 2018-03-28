@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "main": "index.js",
+  "proxy": "http://localhost:8080/",
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
@@ -24,7 +26,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "build:watch:server": "babel ./server -d build/server --watch",
-    "start:dev": "parallelshell --verbose 'npm run build:watch:server' 'nodemon ./build/server/index.js'"
+    "build:server": "babel ./server -d build-server --watch",
+    "start:server": "parallelshell --verbose 'npm run build:server' 'nodemon ./build-server/index.js'",
+    "start:all": "parallelshell --verbose 'npm run start:server' 'npm run build' 'npm run start'"
   }
 }
